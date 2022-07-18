@@ -1,0 +1,15 @@
+.small-signin-color {
+    color: #BDDD6D !important;
+}
+
+.sigin-spec {
+    /* position: absolute; */
+    color: #4CB051 !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+}
+
+.text-spec {
+    color: #000000;
+    font-style: normal;
+}

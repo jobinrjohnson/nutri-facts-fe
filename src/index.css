@@ -1,0 +1,35 @@
+:root {
+  --bs-primary: red;
+}
+
+* {
+  font-family: 'Poppins';
+}
+
+.text-muted2{
+  color: #B0B0B0 !important;
+}
+
+.btn-primary {
+  background-color: #92C64E !important;
+  border: none !important;
+  border-radius: 50px !important;
+  line-height: 150%;
+  font-size: 13px !important;
+  /* font-family: 'Poppins' !important; */
+  font-style: normal !important;
+  font-weight: bold !important;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.vh-100 {
+  min-height: 100vh;
+}
