@@ -13,7 +13,6 @@ function ProductListUpload() {
                 <br />
                 <br />
                 <p className='dragdrop'>Drag and Drop here</p>
-                {/* <br /> */}
                 <p>or</p>
                 <button className='btn btn-primary' style={{ width: '192px' }}>Browse Files</button>
                 <br />
