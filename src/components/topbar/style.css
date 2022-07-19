@@ -1,0 +1,19 @@
+.topbar {
+    height: 80px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.searchButton {
+    border-radius: 100px;
+    background: #F9F9F9;
+    border-color: #F9F9F9;
+    border: none;
+    outline: none;
+}
+
+.textColor {
+    color: #4CB051;
+    font-weight: 600;
+    font-size: 14px;
+}

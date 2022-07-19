@@ -1,27 +1,19 @@
 import './style.css';
-import Sidebar from '../../components/sidebar/Sidebar';
+import DashboardLayout from '../../components/dashboard/DashboardLayout';
 
 function ProductListEmpty() {
     return (
-        <div className='container-fluid vh-100'>
-
-
-            <div className='row'>
-                <div className='col-auto'>
-
-                    <Sidebar />
-
-                </div>
-                <div className='col'>
-                    <p>ashg\sgh</p>
-                </div>
-
+        <DashboardLayout>
+            <div className="text-center py-5 box">
+                <br/>
+                <br/>
+                <p>Your don’t have image in the list</p>
+                <br/>
+                <button className='btn btn-primary' style={{ width: '192px' }}>Add New</button>
+                <br/>
+                <br/>
             </div>
-
-
-
-
-        </div>
+        </DashboardLayout>
     );
 }
 
