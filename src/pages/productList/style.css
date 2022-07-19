@@ -1,0 +1,15 @@
+.monthtext {
+    font-weight: 600;
+    font-size: 24px;
+    color: #4CB051;
+}
+
+.tablehead {
+    /* font-weight: 200; */
+    /* font-size: 14px; */
+    color: #BDDD6D;
+}
+
+.number{
+    color: #BDDD6D;
+}
