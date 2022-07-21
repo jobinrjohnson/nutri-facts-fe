@@ -62,12 +62,12 @@ class Login extends Component {
                 <p className="mb-3">Don’t have an account? <a href="#" className="text-reset small-signin-color">Sign
                     up</a></p>
 
-                <div class="mb-3 text-start">
+                <div className="mb-3 text-start">
                     <label className="form-label text-spec">Email </label>
                     <input name='email' value={this.state.email} onChange={e => this.change(e)} type="email"
                            className="form-control" placeholder=""/>
                 </div>
-                <div class="mb-3 text-start">
+                <div className="mb-3 text-start">
                     <label className="form-label text-spec">Password</label>
                     <input name='password' value={this.state.password} onChange={e => this.change(e)}
                            type="password" className="form-control"/>

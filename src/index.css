@@ -1,6 +1,10 @@
 :root {
   --bs-primary: red;
 }
+a{
+  color: inherit !important;
+  text-decoration: inherit !important;
+}
 
 * {
   font-family: 'Poppins';

@@ -1,5 +1,6 @@
 import './style.css';
 import logo from "../../logo.png"
+import {Link} from "react-router-dom";
 
 function Sidebar() {
     return (
@@ -14,14 +15,14 @@ function Sidebar() {
             <br />
             <br />
 
-            <div className='row align-items-center mb-5 mt-4'>
+            <Link to={"/list"} className='row align-items-center mb-5 mt-4'>
                 <div className='col-auto'>
                     <svg width="30" height="30" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3 19.6667H6.33333V16.3334H3V19.6667ZM3 26.3334H6.33333V23.0001H3V26.3334ZM3 13.0001H6.33333V9.66675H3V13.0001ZM9.66667 19.6667H33V16.3334H9.66667V19.6667ZM9.66667 26.3334H33V23.0001H9.66667V26.3334ZM9.66667 9.66675V13.0001H33V9.66675H9.66667Z" fill="#4CB051" />
                     </svg>
                 </div>
                 <div className='col ps-0 text-color text-spec'>Product list</div>
-            </div>
+            </Link>
 
             <div className='row align-items-center mb-5'>
                 <div className='col-auto'>
@@ -56,9 +57,9 @@ function Sidebar() {
             <br />
             <br />
 
-            <div className='row align-items-center'>
+            <Link to={"/upload"} className='row align-items-center'>
                 <button className='btn btn-primary' style={{ width: "163px" }}>Add New</button>
-            </div>
+            </Link>
 
         </div>
     );
