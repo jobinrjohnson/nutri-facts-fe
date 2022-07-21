@@ -7,7 +7,7 @@ import ProductListSelect from './pages/productListSelect/productListSelect';
 
 function App() {
   return (
-    <ProductListSelect />
+    <LoginPage />
   );
 }
 
