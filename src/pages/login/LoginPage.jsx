@@ -2,6 +2,7 @@ import './style.css';
 import loginPage from "../login/loginPage.png"
 import logo from "../../logo.png"
 import {Component} from 'react';
+import {Link} from "react-router-dom";
 
 class Login extends Component {
 
@@ -74,7 +75,10 @@ class Login extends Component {
                 </div>
 
                 <p className='text-end text-muted2'>Forgot password?</p>
-                <button onClick={e => this.onSubmit(e)} className='btn btn-primary w-100'>Sign In</button>
+                <Link to="/list"  className='btn btn-primary w-100'>
+                    Sign In
+                </Link>
+                {/*<button onClick={e => this.onSubmit(e)} className='btn btn-primary w-100'>Sign In</button>*/}
 
             </div>
         </div>);

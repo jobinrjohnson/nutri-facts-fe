@@ -2,12 +2,18 @@ import './style.css';
 import DashboardLayout from '../../components/dashboard/DashboardLayout';
 import NutrieFact from '../../components/NutrieFact/NutrieFact';
 import {Component} from "react";
-import pic from "./pic.png";
 
 class ProductListSelect extends Component {
 
     constructor(props) {
         super(props);
+        let se = {}
+        Object.keys(this.props.results).map(x => {
+            se[x] = false
+        })
+        this.state = {
+            selectedItems: se
+        }
     }
 
 
@@ -17,7 +23,13 @@ class ProductListSelect extends Component {
             <div className="selectbar px-3 py-4">
                 <div className='row align-items-center mb-4'>
                     <div className='col-auto'>
-                        <input type="checkbox"/>
+                        <input type="checkbox" onChange={(e) => {
+                            let se = {}
+                            Object.keys(this.props.results).map(x => {
+                                se[x] = e.target.checked
+                            })
+                            this.setState({selectedItems: se})
+                        }}/>
                     </div>
                     <div className='col-auto'>
                         <svg width="24" height="24" viewBox="0 0 32 28" fill="none"
@@ -34,10 +46,22 @@ class ProductListSelect extends Component {
 
                 <div className="ps-3">
                     {Object.keys(this.props.results).map(x => {
-                        return (<div className="row align-items-center mb-4">
+                        return (<div className="row align-items-center mb-4"  key={x}>
 
                             <div className="col-auto">
-                                <input type="checkbox"/>
+                                <input type="checkbox"
+                                       checked={this.state.selectedItems[x]}
+                                       onChange={e => {
+                                           this.setState({
+                                               selectedItems: {
+                                                   ...this.state.selectedItems,
+                                                   [x]: e.target.checked
+                                               }
+                                           }, () => {
+                                               console.log(this.state.selectedItems)
+                                           })
+                                       }}
+                                />
                             </div>
                             <div className="col-auto">
                                 <img width="38" src={"https://lgpoc1.s3.amazonaws.com/" + x}/>
@@ -64,9 +88,12 @@ class ProductListSelect extends Component {
                 <div className="col">
 
                     <div className="w-100">
-                        {Object.keys(this.props.results).map(x => {
+                        {Object.keys(this.state.selectedItems).map(x => {
+                            if (!this.state.selectedItems[x]) {
+                                return <></>
+                            }
                             return (
-                                <NutrieFact image={"https://lgpoc1.s3.amazonaws.com/" + x}
+                                <NutrieFact key={x} image={"https://lgpoc1.s3.amazonaws.com/" + x}
                                             facts={this.props.results[x]}/>)
                         })}
                     </div>

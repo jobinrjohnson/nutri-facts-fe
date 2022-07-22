@@ -9,8 +9,8 @@ import ProductListSelect from './pages/productListSelect/productListSelect';
 function App() {
     return (<BrowserRouter>
             <Routes>
-                <Route path="/login" element={<LoginPage/>}/>
-                <Route path="/" element={<ProductListEmpty/>}/>
+                <Route path="/" element={<LoginPage/>}/>
+                <Route path="/list" element={<ProductListEmpty/>}/>
                 <Route path="/upload" element={<ProductListUpload/>}/>
                 <Route path="/list" element={<ProductList/>}/>
                 <Route path="/pselect" element={<ProductListSelect/>}/>
