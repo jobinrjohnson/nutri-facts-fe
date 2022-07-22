@@ -1,0 +1,18 @@
+.nutri-tab > tbody > tr > *:first-child {
+    text-align: left;
+}
+
+
+.nutri-tab > tbody > tr > * {
+    font-size: 13px;
+    line-height: 22px;
+}
+
+.nutri-tab > tbody > tr > td:first-child {
+    padding-left: 15px;
+}
+
+
+.nutri-tab > tbody > tr > *:last-child {
+    text-align: right;
+}
