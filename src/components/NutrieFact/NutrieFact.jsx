@@ -2,13 +2,15 @@ import './style.css';
 import nutriepic from '../NutrieFact/nutriepic.png'
 
 
-function NutrieFact() {
-    return (
+function NutrieFact(props) {
 
-        <div className="text-center p-5 box">
+    let facts = props.facts
+
+    return (
+        <div className="text-center p-5 box mb-4">
             <div className='row align-items-center'>
-                <div className='col-auto'>
-                    <img src={nutriepic} />
+                <div className='col-4'>
+                    <img src={props.image} className="w-100" />
                 </div>
                 <div className='col'>
                     <table className='w-100'>
