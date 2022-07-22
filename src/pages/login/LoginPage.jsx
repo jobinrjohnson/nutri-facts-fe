@@ -36,7 +36,7 @@ class Login extends Component {
             headers: myHeaders
         };
 
-        fetch("https://api.staging.restaurant.thefoodo.com/auth/login", requestOptions)
+        fetch("https://lgpocdemobackenddemo2.jobinrjohnson.in/auth/login", requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));

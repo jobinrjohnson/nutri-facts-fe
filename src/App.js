@@ -10,7 +10,7 @@ function App() {
     return (<BrowserRouter>
             <Routes>
                 <Route path="/login" element={<LoginPage/>}/>
-                <Route path="/empty" element={<ProductListEmpty/>}/>
+                <Route path="/" element={<ProductListEmpty/>}/>
                 <Route path="/upload" element={<ProductListUpload/>}/>
                 <Route path="/list" element={<ProductList/>}/>
                 <Route path="/pselect" element={<ProductListSelect/>}/>
