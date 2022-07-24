@@ -2,14 +2,15 @@ import './style.css';
 import loginPage from "../login/loginPage.png"
 import logo from "../../logo.png"
 import {Component} from 'react';
-import {Link} from "react-router-dom";
+import {Navigate} from "react-router-dom";
+import {getPath, saveToken} from "../../api/main";
 
 class Login extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            email: "", password: "", token: "",
+            email: "", password: "", token: "", err: "", isLoginComplete: false
         };
     }
 
@@ -26,25 +27,38 @@ class Login extends Component {
 
         myHeaders.append("Content-Type", "application/json");
         let raw = JSON.stringify({
-            "email": this.state.email,
-            "password": this.state.password
+            // "email": this.state.email, "password": this.state.password
+            "email": "jobinrjohnson@gmail.com",
+            "password": "helloWorld"
         });
 
         let requestOptions = {
-            method: 'POST',
-            body: raw,
-            redirect: 'follow',
-            headers: myHeaders
+            method: 'POST', body: raw, redirect: 'follow', headers: myHeaders
         };
 
-        fetch("https://lgpocdemobackenddemo2.jobinrjohnson.in/auth/login", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+        this.setState({err: ""})
+
+        fetch(getPath("/auth/login"), requestOptions)
+            .then(response => {
+                response.json().then((r) => {
+                    if (response.status >= 400) {
+                        this.setState({err: r.msg})
+                        return
+                    }
+                    saveToken(r.data.token)
+                    this.setState({isLoginComplete: true})
+                })
+            })
+            .catch(error => this.setState({err: error?.toString}));
 
     }
 
     render() {
+
+        if (this.state.isLoginComplete) {
+            return <Navigate to="/"/>
+        }
+
         return (<div className='container-fluid vh-100 d-flex align-items-center justify-content-center' style={{
             backgroundImage: `url(${loginPage})`, backgroundSize: "100% 100%"
         }}>
@@ -75,10 +89,11 @@ class Login extends Component {
                 </div>
 
                 <p className='text-end text-muted2'>Forgot password?</p>
-                <Link to="/list"  className='btn btn-primary w-100'>
-                    Sign In
-                </Link>
-                {/*<button onClick={e => this.onSubmit(e)} className='btn btn-primary w-100'>Sign In</button>*/}
+                <p className='text-center' style={{color: "red"}}>{this.state.err}</p>
+                {/*<Link to="/list"  className='btn btn-primary w-100'>*/}
+                {/*    Sign In*/}
+                {/*</Link>*/}
+                <button onClick={e => this.onSubmit(e)} className='btn btn-primary w-100'>Sign In</button>
 
             </div>
         </div>);

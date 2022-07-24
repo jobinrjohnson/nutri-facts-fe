@@ -129,8 +129,10 @@ class ProductListUpload extends Component {
             method: 'POST', headers: myHeaders, body: formdata, redirect: 'follow'
         };
 
-        return fetch("http://127.0.0.1:8081/infer", requestOptions)
-            .then(response => response.json())
+        return fetch("https://lgpocdemobackenddemo.jobinrjohnson.in/infer", requestOptions)
+            .then(response => {
+                return response.json()
+            })
             .then(result => {
                 this.results[result.filePath] = result.result
                 console.log(result)
