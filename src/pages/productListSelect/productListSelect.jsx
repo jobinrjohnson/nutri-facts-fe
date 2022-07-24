@@ -142,12 +142,12 @@ class ProductListSelect extends Component {
         return (<DashboardLayout>
 
 
-            <div className='row align-items center px-5 pb-3'>
+            <div className='row align-items center pb-3'>
                 <div className='col-auto'>
-                    <input type="checkbox"/>
+                    {/*<input type="checkbox"/>*/}
                 </div>
                 <div className='col-auto'>
-                    Select All
+                    {/*Select All*/}
                 </div>
                 <div className='col'>
                 </div>

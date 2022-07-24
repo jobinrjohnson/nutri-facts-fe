@@ -2,10 +2,16 @@ let TOKEN = ""
 
 export function saveToken(t) {
     TOKEN = t
-    console.log(t)
+    window.localStorage.setItem("token", t)
 }
 
 export function getToken() {
+    if (TOKEN === "") {
+        let m = window.localStorage.getItem("token")
+        if (m) {
+            TOKEN = m
+        }
+    }
     return `Bearer ${TOKEN}`
 }
 

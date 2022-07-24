@@ -4,6 +4,8 @@ import {Component} from "react";
 import {Link, Navigate} from "react-router-dom";
 import {getPath, getToken, saveToken} from "../../api/main";
 import {ExportToCsv} from 'export-to-csv';
+import Lottie from "react-lottie-player";
+import lottieJson from "../productList_upload/my-lottie.json";
 
 
 class ProductList extends Component {
@@ -141,7 +143,12 @@ class ProductList extends Component {
 
     renderLoading = () => {
         return (<div className="text-center py-5 box">
-            <progress/>
+            <Lottie
+                loop
+                animationData={lottieJson}
+                play
+                style={{width: 250, height: 250, margin: "auto"}}
+            />
         </div>)
     }
 

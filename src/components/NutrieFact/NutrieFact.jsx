@@ -12,7 +12,7 @@ function NutrieFact(props) {
 
     let facts = props.facts
 
-    return (<div className="text-center p-5 box mb-4">
+    return (<div className="text-center p-5 box mb-4" style={{background:"white"}}>
         <div className='row align-items-center'>
             <div className='col-4'>
                 <img src={props.image} className="w-100"/>
