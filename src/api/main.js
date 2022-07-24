@@ -5,8 +5,8 @@ export function saveToken(t) {
     console.log(t)
 }
 
-export function getToken(t) {
-    TOKEN = t
+export function getToken() {
+    return `Bearer ${TOKEN}`
 }
 
 export function getPath(t) {

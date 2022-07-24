@@ -8,115 +8,115 @@ const fileTypes = ["JPG", "JPEG", "PNG", "GIF"];
 
 class ProductListUpload extends Component {
 
-    results = {}
+    // results = {}
 
-    // results = {
-    //     "644b7d0544cf4b0285fcd0772ac16741/1eec551754fe45b0b57c19a725de447f-584d7207d702470197185ba9ff06352c-a778fd3e25fd418ea68276cff932858b-nutrition-facts-label-for-kelloggs-froot-loops-cereal-KFHENP.jpg": {
-    //         "biotin": {},
-    //         "calcium": {},
-    //         "calories": "100",
-    //         "carbohydrate": {
-    //             "dietaryFiber": {
-    //                 "quantity": "3",
-    //                 "type": "3g"
-    //             },
-    //             "totalCarbohydrate": {
-    //                 "quantity": "2",
-    //                 "type": "24g"
-    //             },
-    //             "totalSugars": {}
-    //         },
-    //         "cholesterol": {},
-    //         "fat": {
-    //             "saturatedFat": {
-    //                 "type": "0g"
-    //             },
-    //             "totalFat": {},
-    //             "transFat": {
-    //                 "type": "0g"
-    //             }
-    //         },
-    //         "folicAcid": {},
-    //         "iron": {},
-    //         "niacin": {},
-    //         "pantothenicAcid": {},
-    //         "potassium": {},
-    //         "protein": {
-    //             "type": "1g"
-    //         },
-    //         "riboflavin": {},
-    //         "serving": {
-    //             "serving": "1 Box (279)"
-    //         },
-    //         "sodium": {
-    //             "quantity": "1",
-    //             "type": "140mg"
-    //         },
-    //         "thiamin": {},
-    //         "vitaminA": {},
-    //         "vitaminB12": {},
-    //         "vitaminB6": {},
-    //         "vitaminC": {},
-    //         "vitaminD": {},
-    //         "zinc": {}
-    //     },
-    //     "5f9a2cb4cacd4e42b44247e3ffc2abd4/8d4e20f382b945c0a0716a11eedbc9bd-2eb1ca8049404bf79b8582c003dea83d-a778fd3e25fd418ea68276cff932858b-nutrition-facts-label-for-kelloggs-froot-loops-cereal-KFHENP.jpg": {
-    //         "biotin": {},
-    //         "calcium": {},
-    //         "calories": "100",
-    //         "carbohydrate": {
-    //             "dietaryFiber": {
-    //                 "quantity": "3",
-    //                 "type": "3g"
-    //             },
-    //             "totalCarbohydrate": {
-    //                 "quantity": "2",
-    //                 "type": "24g"
-    //             },
-    //             "totalSugars": {}
-    //         },
-    //         "cholesterol": {},
-    //         "fat": {
-    //             "saturatedFat": {
-    //                 "type": "0g"
-    //             },
-    //             "totalFat": {},
-    //             "transFat": {
-    //                 "type": "0g"
-    //             }
-    //         },
-    //         "folicAcid": {},
-    //         "iron": {},
-    //         "niacin": {},
-    //         "pantothenicAcid": {},
-    //         "potassium": {},
-    //         "protein": {
-    //             "type": "1g"
-    //         },
-    //         "riboflavin": {},
-    //         "serving": {
-    //             "serving": "1 Box (279)"
-    //         },
-    //         "sodium": {
-    //             "quantity": "1",
-    //             "type": "140mg"
-    //         },
-    //         "thiamin": {},
-    //         "vitaminA": {},
-    //         "vitaminB12": {},
-    //         "vitaminB6": {},
-    //         "vitaminC": {},
-    //         "vitaminD": {},
-    //         "zinc": {}
-    //     }
-    // }
+    results = {
+        "644b7d0544cf4b0285fcd0772ac16741/1eec551754fe45b0b57c19a725de447f-584d7207d702470197185ba9ff06352c-a778fd3e25fd418ea68276cff932858b-nutrition-facts-label-for-kelloggs-froot-loops-cereal-KFHENP.jpg": {
+            "biotin": {},
+            "calcium": {},
+            "calories": "100",
+            "carbohydrate": {
+                "dietaryFiber": {
+                    "quantity": "3",
+                    "type": "3g"
+                },
+                "totalCarbohydrate": {
+                    "quantity": "2",
+                    "type": "24g"
+                },
+                "totalSugars": {}
+            },
+            "cholesterol": {},
+            "fat": {
+                "saturatedFat": {
+                    "type": "0g"
+                },
+                "totalFat": {},
+                "transFat": {
+                    "type": "0g"
+                }
+            },
+            "folicAcid": {},
+            "iron": {},
+            "niacin": {},
+            "pantothenicAcid": {},
+            "potassium": {},
+            "protein": {
+                "type": "1g"
+            },
+            "riboflavin": {},
+            "serving": {
+                "serving": "1 Box (279)"
+            },
+            "sodium": {
+                "quantity": "1",
+                "type": "140mg"
+            },
+            "thiamin": {},
+            "vitaminA": {},
+            "vitaminB12": {},
+            "vitaminB6": {},
+            "vitaminC": {},
+            "vitaminD": {},
+            "zinc": {}
+        },
+        "5f9a2cb4cacd4e42b44247e3ffc2abd4/8d4e20f382b945c0a0716a11eedbc9bd-2eb1ca8049404bf79b8582c003dea83d-a778fd3e25fd418ea68276cff932858b-nutrition-facts-label-for-kelloggs-froot-loops-cereal-KFHENP.jpg": {
+            "biotin": {},
+            "calcium": {},
+            "calories": "100",
+            "carbohydrate": {
+                "dietaryFiber": {
+                    "quantity": "3",
+                    "type": "3g"
+                },
+                "totalCarbohydrate": {
+                    "quantity": "2",
+                    "type": "24g"
+                },
+                "totalSugars": {}
+            },
+            "cholesterol": {},
+            "fat": {
+                "saturatedFat": {
+                    "type": "0g"
+                },
+                "totalFat": {},
+                "transFat": {
+                    "type": "0g"
+                }
+            },
+            "folicAcid": {},
+            "iron": {},
+            "niacin": {},
+            "pantothenicAcid": {},
+            "potassium": {},
+            "protein": {
+                "type": "1g"
+            },
+            "riboflavin": {},
+            "serving": {
+                "serving": "1 Box (279)"
+            },
+            "sodium": {
+                "quantity": "1",
+                "type": "140mg"
+            },
+            "thiamin": {},
+            "vitaminA": {},
+            "vitaminB12": {},
+            "vitaminB6": {},
+            "vitaminC": {},
+            "vitaminD": {},
+            "zinc": {}
+        }
+    }
 
 
     constructor(props) {
         super(props);
 
         this.state = {
-            file: null, step: 1, total: 0, uploaded: 0
+            file: null, step: 3, total: 0, uploaded: 0
         }
     }
 
