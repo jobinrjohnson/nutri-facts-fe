@@ -4,6 +4,10 @@ import {FileUploader} from "react-drag-drop-files";
 import {Component} from "react";
 import ProductListSelect from "../productListSelect/productListSelect";
 
+import lottieJson from './my-lottie.json';
+import Lottie from "react-lottie-player";
+
+
 const fileTypes = ["JPG", "JPEG", "PNG", "GIF"];
 
 class ProductListUpload extends Component {
@@ -171,7 +175,7 @@ class ProductListUpload extends Component {
 
         return (<DashboardLayout noSidebar={true}>
             <div style={{
-                textAlign:"center"
+                textAlign: "center"
             }}>
                 <FileUploader
                     multiple={true}
@@ -210,8 +214,15 @@ class ProductListUpload extends Component {
     renderUploading = () => {
         return (<DashboardLayout noSidebar={true}>
             <div className="w-100 text-center py-5 my-5">
-                <progress></progress>
-                <p>{this.state.uploaded} out of {this.state.total}</p>
+
+                <Lottie
+                    loop
+                    animationData={lottieJson}
+                    play
+                    style={{width: 250, height: 250, margin: "auto"}}
+                />
+                <p style={{color: "#92C64E", fontWeight: "bold"}}>Uploading {this.state.uploaded} out
+                    of {this.state.total}</p>
             </div>
         </DashboardLayout>)
     }
