@@ -3,6 +3,7 @@ import DashboardLayout from '../../components/dashboard/DashboardLayout';
 import {Component} from "react";
 import {Link, Navigate} from "react-router-dom";
 import {getPath, getToken, saveToken} from "../../api/main";
+import {ExportToCsv} from 'export-to-csv';
 
 
 class ProductList extends Component {
@@ -15,6 +16,85 @@ class ProductList extends Component {
         }
     }
 
+    getFlattened(k, i) {
+        if ((!i?.type) || (!i?.quantity)) {
+            return {
+                [k + "-type"]: "",
+                [k + "-quantity"]: ""
+            }
+        }
+        return {
+            [k + "-type"]: i.type,
+            [k + "-quantity"]: i.quantity
+        }
+    }
+
+    getFlattened2(k, i) {
+        if ((!i?.type) || (!i?.quantity)) {
+            return {
+                [k]: ""
+            }
+        }
+        return {
+            [k]: i.quantity
+        }
+    }
+
+
+    exportToCsv = () => {
+        console.log(this.state.items)
+        let it = this.state.items.map((i, n) => {
+            let f = i.nutriInfo
+            return {
+                "#": n,
+                "name": i.name,
+                ...this.getFlattened("Biotin", f.biotin),
+                ...this.getFlattened("Calcium", f.calcium),
+                ...this.getFlattened("Total Carbohydrate", f.carbohydrate.totalCarbohydrate),
+                ...this.getFlattened("Dietary Fiber", f.carbohydrate.dietaryFiber),
+                ...this.getFlattened("Total Sugars", f.carbohydrate.totalSugars),
+                ...this.getFlattened("Cholesterol", f.cholesterol),
+                ...this.getFlattened("Total Fat", f.fat.totalFat),
+                ...this.getFlattened("Saturated Fat", f.fat.saturatedFat),
+                ...this.getFlattened("Trans Fat", f.fat.transFat),
+                ...this.getFlattened("Potassium", f.potassium),
+                ...this.getFlattened("Protein", f.protein),
+                ...this.getFlattened("Sodium", f.sodium),
+                // Vitamin
+                ...this.getFlattened2("Riboflavin", f.riboflavin),
+                ...this.getFlattened2("Thiamin", f.thiamin),
+                ...this.getFlattened2("Pantothenic Acid", f.pantothenicAcid),
+                ...this.getFlattened2("Vitamin A", f.vitaminA),
+                ...this.getFlattened2("Vitamin B12", f.vitaminB12),
+                ...this.getFlattened2("Zinc", f.zinc),
+                ...this.getFlattened2("Vitamin B6", f.vitaminB6),
+                ...this.getFlattened2("Vitamin C", f.vitaminC),
+                ...this.getFlattened2("Vitamin D", f.vitaminD),
+                ...this.getFlattened2("Folic Acid", f.folicAcid),
+                ...this.getFlattened2("Iron", f.iron),
+                ...this.getFlattened2("Niacin", f.niacin),
+            }
+        })
+        // console.log(it)
+
+
+        const options = {
+            fieldSeparator: ',',
+            quoteStrings: '"',
+            decimalSeparator: '.',
+            showLabels: true,
+            showTitle: true,
+            title: 'Product List',
+            useTextFile: false,
+            useBom: true,
+            useKeysAsHeaders: true,
+        };
+
+        const csvExporter = new ExportToCsv(options);
+
+        csvExporter.generateCsv(it);
+
+    }
 
     getFileNameFromPath(name) {
         let x = name.split("/")
@@ -66,15 +146,17 @@ class ProductList extends Component {
     }
 
     renderEmpty = () => {
-        return (<div className="text-center py-5 box">
+        return (<div className="text-center py-5 box" style={{
+            borderRadius:"10px"
+        }}>
             <br/>
             <br/>
             <p>Your don’t have image in the list</p>
             <br/>
-            <Link to="/upload" className='btn btn-primary' style={{
-                color: "white !important"
-            }}>
-                Add New
+            <Link to="/upload" className='btn btn-primary'>
+                <span style={{
+                    color: "white"
+                }}>Add New</span>
             </Link>
             {/*<button className='btn btn-primary' style={{ width: '192px' }}>Add New</button>*/}
             <br/>
@@ -85,13 +167,17 @@ class ProductList extends Component {
     renderList = () => {
         return (
 
-            <div className="text-center py-5 box" style={{background: "white"}}>
+            <div className="text-center box pt-5 pb-3" style={{background: "white",
+                borderRadius:"10px"}}>
 
                 <div className="py-5 mb-5">
-                    <button className="btn btn-primary px-5 py-3">Download CSV</button>
+                    <button
+                        onClick={this.exportToCsv}
+                        className="btn btn-primary px-5 py-3">Download CSV
+                    </button>
                 </div>
 
-                <table className="table" >
+                <table className="table">
                     <thead className='tablehead'>
                     <tr>
                         <th></th>

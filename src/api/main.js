@@ -11,5 +11,6 @@ export function getToken() {
 
 export function getPath(t) {
     //https://lgpocdemobackenddemo2.jobinrjohnson.in
-    return "http://localhost:8080" + t
+    return "https://lgpocdemobackenddemo2.jobinrjohnson.in" + t
+    // return "http://localhost:8080" + t
 }
