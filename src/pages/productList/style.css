@@ -13,3 +13,10 @@
 .number{
     color: #BDDD6D;
 }
+td{
+    font-size: 14px;
+}
+
+table *{
+    vertical-align: middle;
+}

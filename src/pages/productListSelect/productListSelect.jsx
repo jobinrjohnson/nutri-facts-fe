@@ -16,6 +16,7 @@ class ProductListSelect extends Component {
         this.state = {
             selectedItems: se,
             isComplete: false,
+            has401: false,
             err: ""
         }
     }
@@ -110,6 +111,10 @@ class ProductListSelect extends Component {
         fetch(getPath("/product"), requestOptions)
             .then(response => {
                 response.json().then((r) => {
+                    if (response.status >= 401) {
+                        this.setState({has401: true})
+                        return
+                    }
                     if (response.status >= 400) {
                         alert(r.msg)
                         this.setState({err: r.msg})
@@ -127,6 +132,11 @@ class ProductListSelect extends Component {
 
         if (this.state.isComplete) {
             return <Navigate to="/"/>
+        }
+
+
+        if (this.state.has401) {
+            return <Navigate to="/login"/>
         }
 
         return (<DashboardLayout>
