@@ -27,9 +27,9 @@ class Login extends Component {
 
         myHeaders.append("Content-Type", "application/json");
         let raw = JSON.stringify({
-            // "email": this.state.email, "password": this.state.password
-            "email": "jobinrjohnson@gmail.com",
-            "password": "helloWorld"
+            "email": this.state.email, "password": this.state.password
+            // "email": "jobinrjohnson@gmail.com",
+            // "password": "helloWorld"
         });
 
         let requestOptions = {
